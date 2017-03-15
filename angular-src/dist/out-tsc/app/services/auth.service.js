@@ -11,6 +11,7 @@ import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { tokenNotExpired } from 'angular2-jwt';
+import { environment } from '../../environments/environment';
 var AuthService = (function () {
     function AuthService(http) {
         this.http = http;
@@ -18,13 +19,13 @@ var AuthService = (function () {
     AuthService.prototype.registerUser = function (user) {
         var headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        return this.http.post('users/register', user, { headers: headers })
+        return this.http.post(environment.rootUrl + 'users/register', user, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     AuthService.prototype.authenticateUser = function (user) {
         var headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        return this.http.post('users/authenticate', user, { headers: headers })
+        return this.http.post(environment.rootUrl + 'users/authenticate', user, { headers: headers })
             .map(function (res) { return res.json(); });
     };
     AuthService.prototype.getProfile = function () {
@@ -32,7 +33,7 @@ var AuthService = (function () {
         this.loadToken();
         headers.append('Authorization', this.authToken);
         headers.append('Content-Type', 'application/json');
-        return this.http.get('users/profile', { headers: headers })
+        return this.http.get(environment.rootUrl + 'users/profile', { headers: headers })
             .map(function (res) { return res.json(); });
     };
     AuthService.prototype.storeUserData = function (token, user) {

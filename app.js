@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const passport = require('passport');
 const mongoose = require('mongoose');
-const config = require('./config/database');
+const config = require('./config/database'+process.env.NODE_ENV);
 
 // Connect To Database
 mongoose.connect(config.database);
@@ -24,7 +24,11 @@ const app = express();
 const users = require('./routes/users');
 
 // Port Number
-const port = process.env.PORT || 8080;
+var port = process.env.PORT || 8080;
+if(process.env.NODE_ENV == 'test') {
+  port = 3000;
+}
+
 
 // CORS Middleware
 app.use(cors());
