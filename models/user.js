@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
-const config = require('./config/database'+process.env.NODE_ENV);
+const config = require('../config/database'+process.env.NODE_ENV);
 // User Schema
 const UserSchema = mongoose.Schema({
   name: {
