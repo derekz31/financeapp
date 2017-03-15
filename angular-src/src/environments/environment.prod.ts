@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  rootUrl: ''
+  rootUrl: 'derekz.gq/'
 };

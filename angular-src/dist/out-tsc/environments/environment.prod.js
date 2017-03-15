@@ -1,5 +1,5 @@
 export var environment = {
     production: true,
-    rootUrl: ''
+    rootUrl: 'derekz.gq/'
 };
 //# sourceMappingURL=../../../src/environments/environment.prod.js.map
