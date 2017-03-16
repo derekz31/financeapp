@@ -48,7 +48,7 @@ var ValidateService = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return environment; });
 var environment = {
     production: true,
-    rootUrl: 'derekz.gq/'
+    rootUrl: ''
 };
 //# sourceMappingURL=/projects/financeapp/angular-src/src/environment.prod.js.map
 
