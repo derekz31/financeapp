@@ -39,7 +39,6 @@ var RegisterComponent = (function () {
         }
         this.authService.registerUser(user).subscribe(function (data) {
             if (data.success) {
-                _this.flashMessage.show('You are now registered and can log in', { cssClass: 'alert-success', timeout: 3000 });
                 _this.router.navigate(['/login']);
             }
             else {

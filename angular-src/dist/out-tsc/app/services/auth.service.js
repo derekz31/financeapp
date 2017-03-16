@@ -36,6 +36,14 @@ var AuthService = (function () {
         return this.http.get(environment.rootUrl + 'users/profile', { headers: headers })
             .map(function (res) { return res.json(); });
     };
+    AuthService.prototype.getHealth = function () {
+        var headers = new Headers();
+        this.loadToken();
+        headers.append('Authorization', this.authToken);
+        headers.append('Content-Type', 'application/json');
+        return this.http.get(environment.rootUrl + 'users/health', { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
     AuthService.prototype.storeUserData = function (token, user) {
         localStorage.setItem('id_token', token);
         localStorage.setItem('user', JSON.stringify(user));
